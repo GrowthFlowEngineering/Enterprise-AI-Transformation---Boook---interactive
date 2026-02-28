@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266341,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a365bd0481909ece379c6c9305710c4b2e086b9bad7e",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: A central strategic lever tilts toward governed language and the chosen side glows upward\nScene/background: ceremonial chamber with one lever on a fulcrum\nSubject: single porcelain lever with two outcome plates\nAction: lever slowly tilts to the governed side and stabilizes\nCamera: centered wide shot with subtle dolly-in\nLighting/mood: top-left soft key with mint glow on selected side\nColor palette: cream white, muted teal, near-black frame\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 neutral center, beat 2 deliberate tilt, beat 3 stable glow\nConstraints: premium executive tone, no aggressive sales messaging, no text overlays\nAvoid: dramatic explosions, strobing lights, cluttered stage",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

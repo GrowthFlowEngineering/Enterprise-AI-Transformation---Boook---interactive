@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266343,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a3668ea08191b00f34b358f4d4ba07178774eb08d977",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: Two interlocking gears marked conceptually as model capability and semantic coherence drive one ROI dial\nScene/background: minimal analytical stage with centered mechanism\nSubject: two porcelain gears connected to one output gauge\nAction: both gears spin, then coherence gear slows and ROI dial drops\nCamera: close medium shot, locked camera\nLighting/mood: soft top-left key and subtle teal emission on coherence gear\nColor palette: cream white, mint teal, blue-gray\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 both spin, beat 2 coherence slows, beat 3 ROI drops\nConstraints: no dense equations, one clear mechanism, no watermark\nAvoid: chalkboard math clutter, neon sci-fi look, jitter",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

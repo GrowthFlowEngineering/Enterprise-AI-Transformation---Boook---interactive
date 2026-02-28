@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266339,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a363a6e88190a0e842b826ce62310d2fb391fc03e1f0",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: One central semantic token splits into five diverging rails that drift apart\nScene/background: minimal strategy hall with a single node and five channels\nSubject: central porcelain token feeding five teal rails\nAction: rails separate gradually, each endpoint pulses out of sync\nCamera: top-down three-quarter view, slow clockwise orbit\nLighting/mood: soft top-left key, calm mint accents at branch tips\nColor palette: cream white, cool teal, dark ink blue\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 unity, beat 2 split, beat 3 desync pulse\nConstraints: clear divergence with low cognitive load, no dense text\nAvoid: arrow clutter, data-wall backgrounds, flashy transitions",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "interactive-shell",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "assets:ch1:dry-run": "bash scripts/generate_ch1_bespoke_assets.sh --dry-run",
+    "assets:ch1:dry-run:video": "bash scripts/generate_ch1_bespoke_assets.sh --dry-run --with-sora",
+    "assets:ch1:live": "bash scripts/generate_ch1_bespoke_assets.sh --live",
+    "assets:ch1:live:video": "bash scripts/generate_ch1_bespoke_assets.sh --live --with-sora"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.166.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.183.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "jsdom": "^27.4.0",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.6",
+    "vitest": "^2.1.1"
+  }
+}

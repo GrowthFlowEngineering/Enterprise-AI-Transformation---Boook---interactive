@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266341,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a364eeb08191a861e91727b5afda08f8f6df8655b1e0",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: A fragile valuation monolith cracks and upper metric plates sink as confidence fades\nScene/background: financial plinth under soft spotlight\nSubject: single porcelain metric tower with subtle fracture lines\nAction: hairline cracks spread, top plates slide down in controlled slow motion\nCamera: low angle, slight tilt up, static frame\nLighting/mood: soft top-left key with muted teal glow at crack seams\nColor palette: cream white, muted teal, deep navy\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 stable tower, beat 2 fracture, beat 3 controlled drop\nConstraints: clean metaphor only, no brand references, no ticker text\nAvoid: explosive destruction, red-green trading screens, camera shake",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

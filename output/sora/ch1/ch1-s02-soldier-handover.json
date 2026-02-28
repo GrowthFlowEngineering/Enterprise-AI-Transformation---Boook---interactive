@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266338,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a362cfc88198b69e83caf27fa8df0f289f7e47b1ac6b",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: A stylized teal sentinel passes a sealed scroll over a porcelain pedestal to symbolize ownership without access\nScene/background: minimal archival alcove with one central pedestal\nSubject: teal sentinel figurine and sealed parchment scroll\nAction: one deliberate handover move, then freeze\nCamera: 50mm medium shot with slight arc right\nLighting/mood: soft top-left key, gentle mint fill, low contrast\nColor palette: cream white, mint teal, charcoal blue\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 raise scroll, beat 2 handover, beat 3 pause\nConstraints: one action only, clean silhouette, no realistic human face\nAvoid: crowded background, rapid motion, hard shadows",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

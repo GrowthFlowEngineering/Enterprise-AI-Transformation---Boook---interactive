@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266340,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a36494048190b2fd3409f0582b8303dc70b1839d380d",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: A three-layer architecture aligns from base to top as the semantic foundation locks first\nScene/background: architectural cutaway stage with three horizontal strata\nSubject: semantic base slab, coordination slab, tool slab\nAction: base locks in place, middle aligns, top settles into stable position\nCamera: orthographic-like side view with gentle push-in\nLighting/mood: soft top-left illumination with teal accent strongest at the base\nColor palette: cream white, calm teal, slate blue\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 base lock, beat 2 middle align, beat 3 top settle\nConstraints: show hierarchy clearly, single structure focus\nAvoid: extra props, cluttered controls, hyperactive motion",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+*.tsbuildinfo
+
+# Local temp and checkpoints
+tmp/
+checkpoints/
+
+# Environment
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/

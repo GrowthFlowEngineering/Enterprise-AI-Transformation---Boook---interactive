@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266339,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a3637e2881919e5f7dbfa3ccc4c40d62c29e78875dce",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: Three stacked enterprise layers wobble as the top tool slab overpowers the dim semantic base\nScene/background: executive chamber with one floating stack centered\nSubject: three porcelain slabs representing semantic, coordination, and tool layers\nAction: top slab shakes while base slab dims, then balance almost fails\nCamera: locked frontal shot, mild push-in\nLighting/mood: soft top-left key with restrained teal edge glow\nColor palette: cream white, muted teal, deep slate\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 stable stack, beat 2 top wobble, beat 3 near-fall\nConstraints: single object focus, no logos, no text overlays\nAvoid: busy dashboards, glitch effects, chaotic particles",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}

@@ -1,0 +1,15 @@
+{
+  "completed_at": null,
+  "created_at": 1772266338,
+  "error": null,
+  "expires_at": null,
+  "id": "video_69a2a3624f2c8190941981f6855fa8f5059d76e38745afe6",
+  "model": "sora-2",
+  "object": "video",
+  "progress": 0,
+  "prompt": "Use case: chapter 1 cinematic beat\nPrimary request: The camera glides toward a monumental cream library wall while a teal sentinel statue faces it in silence\nScene/background: near-black stage framing with one illuminated library facade\nSubject: library wall and one stylized teal sentinel figurine\nAction: slow forward dolly as mint contour lines awaken on the shelves\nCamera: 35mm, centered dolly-in, stable motion\nLighting/mood: soft top-left key and subtle teal rim\nColor palette: cream white, muted teal, deep navy\nStyle/format: premium minimal bas-relief cinematic render\nTiming/beats: beat 1 reveal, beat 2 contour pulse, beat 3 hold\nConstraints: single focal subject cluster, no dense text, no watermark\nAvoid: flicker, jitter, stock footage look, oversaturated neon",
+  "remixed_from_video_id": null,
+  "seconds": "4",
+  "size": "1280x720",
+  "status": "queued"
+}
