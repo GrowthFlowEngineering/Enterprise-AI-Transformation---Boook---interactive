@@ -23,8 +23,8 @@ const SCENE_BACKGROUNDS = [
 ];
 
 const SCENE_CAMERAS: [number, number, number][] = [
-  [-1.4, 2.55, 8.9],
-  [1.55, 2.2, 8.5],
+  [-0.55, 2.05, 7.2],
+  [2.15, 1.62, 5.2],
   [0.2, 2.4, 12.5],
   [0, 2.2, 11.2],
   [0.8, 2.1, 10.9],
@@ -34,8 +34,8 @@ const SCENE_CAMERAS: [number, number, number][] = [
 ];
 
 const SCENE_LOOK_ATS: [number, number, number][] = [
-  [-1.25, 1.2, -1.45],
-  [1.1, 1.2, -1.1],
+  [0.42, 0.48, -1.24],
+  [1.46, 0.55, -0.9],
   [0, 1.1, -1.0],
   [0, 1.0, -1.2],
   [0.6, 1.1, -1.3],
@@ -45,8 +45,8 @@ const SCENE_LOOK_ATS: [number, number, number][] = [
 ];
 
 const HOTSPOT_TARGETS = [
-  new THREE.Vector3(0, 0.24, -1.4),
-  new THREE.Vector3(1.3, 0.65, -0.72),
+  new THREE.Vector3(0.16, 0.43, -1.24),
+  new THREE.Vector3(1.46, 0.47, -0.88),
   new THREE.Vector3(0, 0.82, -1),
   new THREE.Vector3(0, 0.5, -1.2),
   new THREE.Vector3(0.94, 1.08, -1.26),
@@ -331,11 +331,11 @@ export default function ChapterOneScene({
     });
     libraryMaterials.push(libraryScrollMaterial);
     const libraryScroll = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.84, 0.84, 3.2, 28),
+      new THREE.CylinderGeometry(0.2, 0.2, 1.4, 20),
       libraryScrollMaterial
     );
     libraryScroll.rotation.z = Math.PI / 2;
-    libraryScroll.position.set(-0.2, 0.18, -1.38);
+    libraryScroll.position.set(0.16, 0.42, -1.26);
     libraryGroup.add(libraryScroll);
 
     scene.add(libraryGroup);
@@ -404,11 +404,11 @@ export default function ChapterOneScene({
     });
     soldierMaterials.push(unreadableScrollMaterial);
     const unreadableScroll = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.28, 0.28, 2.5, 18),
+      new THREE.CylinderGeometry(0.12, 0.12, 0.88, 18),
       unreadableScrollMaterial
     );
     unreadableScroll.rotation.z = Math.PI / 2;
-    unreadableScroll.position.set(0.2, 0.62, -1.16);
+    unreadableScroll.position.set(1.46, 0.47, -0.89);
     soldierGroup.add(unreadableScroll);
 
     const barrierMaterial = new THREE.MeshBasicMaterial({
@@ -747,35 +747,52 @@ export default function ChapterOneScene({
     scene.add(fulcrumGroup);
 
     const hotspotMaterial = new THREE.MeshStandardMaterial({
-      color: 0xadefe7,
+      color: 0xbef4ec,
       emissive: 0x427277,
-      emissiveIntensity: 1.5,
-      roughness: 0.2,
-      metalness: 0.38,
+      emissiveIntensity: 0.56,
+      roughness: 0.24,
+      metalness: 0.36,
       transparent: true,
-      opacity: 0.98,
+      opacity: 0.42,
     });
-    const hotspot = new THREE.Mesh(new THREE.SphereGeometry(0.34, 22, 22), hotspotMaterial);
+    const hotspot = new THREE.Mesh(new THREE.SphereGeometry(0.19, 20, 20), hotspotMaterial);
     scene.add(hotspot);
 
     const cueRingMaterial = new THREE.MeshBasicMaterial({
-      color: 0xa1dcd5,
+      color: 0xb8fff7,
       transparent: true,
-      opacity: 0.84,
+      opacity: 0.3,
       side: THREE.DoubleSide,
     });
-    const cueRing = new THREE.Mesh(new THREE.RingGeometry(0.74, 1.14, 60), cueRingMaterial);
-    cueRing.rotation.x = -Math.PI / 2;
+    const cueRing = new THREE.Mesh(new THREE.RingGeometry(0.32, 0.48, 48), cueRingMaterial);
     scene.add(cueRing);
+
+    const cuePulseMaterial = new THREE.MeshBasicMaterial({
+      color: 0x78efe3,
+      transparent: true,
+      opacity: 0.2,
+      side: THREE.DoubleSide,
+    });
+    const cuePulse = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.3, 42), cuePulseMaterial);
+    scene.add(cuePulse);
+
+    const cuePointerMaterial = new THREE.MeshBasicMaterial({
+      color: 0xe9fffc,
+      transparent: true,
+      opacity: 0.44,
+    });
+    const cuePointer = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.16, 16), cuePointerMaterial);
+    cuePointer.rotation.x = Math.PI;
+    scene.add(cuePointer);
 
     const cueBeamMaterial = new THREE.MeshBasicMaterial({
       color: 0xadefe7,
       transparent: true,
-      opacity: 0.62,
+      opacity: 0.16,
       side: THREE.DoubleSide,
     });
     const cueBeam = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.06, 0.14, 2.4, 26, 1, true),
+      new THREE.CylinderGeometry(0.03, 0.06, 1.3, 18, 1, true),
       cueBeamMaterial
     );
     scene.add(cueBeam);
@@ -800,7 +817,7 @@ export default function ChapterOneScene({
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-    const interactiveTargets = [hotspot, cueRing, cueBeam];
+    const interactiveTargets = [hotspot, cueRing, cuePulse, cueBeam, cuePointer];
 
     const resize = () => {
       const width = container.clientWidth;
@@ -829,6 +846,7 @@ export default function ChapterOneScene({
     };
 
     const handlePointerDown = (event: PointerEvent) => {
+      if (!event.isPrimary) return;
       activateFromPoint(event.clientX, event.clientY);
     };
     renderer.domElement.addEventListener("pointerdown", handlePointerDown);
@@ -858,16 +876,19 @@ export default function ChapterOneScene({
       const w6 = weightFor(blend, 6);
       const w7 = weightFor(blend, 7);
 
-      const libraryWeight = clamp(w0 + w1 * 0.62, 0, 1);
-      const soldierWeight = clamp(w1 + w0 * 0.42, 0, 1);
+      const libraryWeight = clamp(w0 * 0.92 + w1 * 0.14, 0, 1);
+      const soldierWeight = clamp(w1 + w0 * 0.54, 0, 1);
+      const sceneTwoFocus = clamp(w1 - w0 * 0.2, 0, 1);
 
       setOpacity(libraryMaterials, libraryWeight);
       libraryGroup.visible = libraryWeight > 0.02;
-      libraryGroup.position.x = Math.sin(elapsed * 0.16) * 0.16 * libraryWeight;
+      libraryGroup.position.x = Math.sin(elapsed * 0.16) * 0.12 * libraryWeight - sceneTwoFocus * 0.56;
+      libraryGroup.position.z = -sceneTwoFocus * 0.08;
 
       setOpacity(soldierMaterials, soldierWeight);
       soldierGroup.visible = soldierWeight > 0.02;
       soldierGroup.position.y = Math.sin(elapsed * 0.9) * 0.05 * soldierWeight;
+      soldierGroup.position.x = sceneTwoFocus * 0.18;
 
       setOpacity(toolChaosMaterials, w2);
       toolChaosGroup.visible = w2 > 0.02;
@@ -906,19 +927,29 @@ export default function ChapterOneScene({
 
       const hotspotTarget = getHotspotFor(sceneIndexRef.current);
       hotspot.position.copy(hotspotTarget);
-      const cueActive = requiresInteractionRef.current ? 1 : 0.24;
+      const cueActive = requiresInteractionRef.current ? 1 : 0.16;
       const pulse = Math.sin(elapsed * 3.1);
-      hotspot.scale.setScalar(1 + pulse * 0.13 * cueActive);
-      hotspotMaterial.opacity = 0.58 + 0.4 * cueActive;
-      hotspotMaterial.emissiveIntensity = 0.95 + (pulse + 1) * 0.24 * cueActive;
+      hotspot.scale.setScalar(1 + pulse * 0.08 * cueActive);
+      hotspotMaterial.opacity = 0.2 + 0.22 * cueActive;
+      hotspotMaterial.emissiveIntensity = 0.24 + (pulse + 1) * 0.13 * cueActive;
 
-      cueRing.position.set(hotspotTarget.x, -1.46, hotspotTarget.z);
-      cueRing.scale.setScalar(1 + Math.sin(elapsed * 2.1) * 0.2 * cueActive);
-      cueRingMaterial.opacity = 0.24 + 0.56 * cueActive;
+      cueRing.position.set(hotspotTarget.x, hotspotTarget.y - 0.2, hotspotTarget.z);
+      cueRing.lookAt(camera.position);
+      cueRing.scale.setScalar(1 + Math.sin(elapsed * 2.2) * 0.1 * cueActive);
+      cueRingMaterial.opacity = 0.04 + 0.24 * cueActive;
 
-      cueBeam.position.set(hotspotTarget.x, -0.22, hotspotTarget.z);
-      cueBeam.scale.y = 1 + Math.sin(elapsed * 2.4) * 0.1 * cueActive;
-      cueBeamMaterial.opacity = 0.18 + 0.4 * cueActive;
+      cuePulse.position.set(hotspotTarget.x, hotspotTarget.y, hotspotTarget.z);
+      cuePulse.lookAt(camera.position);
+      cuePulse.scale.setScalar(1 + Math.sin(elapsed * 3) * 0.14 * cueActive);
+      cuePulseMaterial.opacity = 0.02 + 0.16 * cueActive;
+
+      cuePointer.position.set(hotspotTarget.x, hotspotTarget.y + 0.28, hotspotTarget.z);
+      cuePointer.scale.setScalar(1 + Math.sin(elapsed * 3.8) * 0.05 * cueActive);
+      cuePointerMaterial.opacity = 0.08 + 0.3 * cueActive;
+
+      cueBeam.position.set(hotspotTarget.x, hotspotTarget.y + 0.1, hotspotTarget.z);
+      cueBeam.scale.y = 0.95 + Math.sin(elapsed * 2.6) * 0.06 * cueActive;
+      cueBeamMaterial.opacity = 0.01 + 0.1 * cueActive;
 
       const dustPositionsAttribute = dust.geometry.attributes.position as THREE.BufferAttribute;
       for (let index = 0; index < dustCount; index += 1) {
@@ -974,6 +1005,10 @@ export default function ChapterOneScene({
       hotspotMaterial.dispose();
       cueRing.geometry.dispose();
       cueRingMaterial.dispose();
+      cuePulse.geometry.dispose();
+      cuePulseMaterial.dispose();
+      cuePointer.geometry.dispose();
+      cuePointerMaterial.dispose();
       cueBeam.geometry.dispose();
       cueBeamMaterial.dispose();
 

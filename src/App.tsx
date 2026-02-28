@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ChapterOneScene from "./components/ChapterOneScene";
 import ChapterOneAssetReview from "./components/ChapterOneAssetReview";
 import {
@@ -16,13 +16,32 @@ const App = () => {
   const [state, setState] = useState<ChapterOneState>(createChapterOneState);
   const [interactionDone, setInteractionDone] = useState(false);
   const [viewMode, setViewMode] = useState<AppViewMode>("story");
+  const advanceLockRef = useRef(false);
 
   const scene = useMemo(() => getChapterOneScene(state.sceneIndex), [state.sceneIndex]);
   const done = isFinalScene(state.sceneIndex);
 
   useEffect(() => {
     setInteractionDone(false);
+    advanceLockRef.current = false;
   }, [state.sceneIndex]);
+
+  const triggerPrimaryAdvance = useCallback(() => {
+    if (viewMode !== "story") return;
+
+    if (done) {
+      setInteractionDone(true);
+      return;
+    }
+
+    if (advanceLockRef.current) return;
+    advanceLockRef.current = true;
+    setInteractionDone(true);
+
+    window.setTimeout(() => {
+      setState((current) => transitionChapterOne(current, "PRIMARY_ACTION"));
+    }, 420);
+  }, [done, viewMode]);
 
   return (
     <main className={`app-shell scene-theme-${scene.theme}`}>
@@ -33,17 +52,7 @@ const App = () => {
             title={scene.title}
             narrativeLine={scene.narrativeLine}
             requiresInteraction={!interactionDone}
-            onPrimaryNodeActivated={() => {
-              setInteractionDone((previous) => {
-                if (previous) return previous;
-                if (!done) {
-                  window.setTimeout(() => {
-                    setState((current) => transitionChapterOne(current, "PRIMARY_ACTION"));
-                  }, 420);
-                }
-                return true;
-              });
-            }}
+            onPrimaryNodeActivated={triggerPrimaryAdvance}
           />
         ) : (
           <ChapterOneAssetReview />
@@ -82,7 +91,7 @@ const App = () => {
                 className="scene-action-fallback"
                 onClick={() => {
                   if (!done) {
-                    setState((current) => transitionChapterOne(current, "PRIMARY_ACTION"));
+                    triggerPrimaryAdvance();
                     return;
                   }
 
