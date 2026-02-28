@@ -1,0 +1,61 @@
+{
+  "fps": 30,
+  "clips": [
+    {
+      "id": "ch1-s01",
+      "video": "output/sora/ch1/ch1-s01-library-reveal.mp4",
+      "voiceover": "output/speech/ch1/ch1-s01-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "The Library of Alexandria"
+    },
+    {
+      "id": "ch1-s02",
+      "video": "output/sora/ch1/ch1-s02-soldier-handover.mp4",
+      "voiceover": "output/speech/ch1/ch1-s02-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "The Roman Soldier Problem"
+    },
+    {
+      "id": "ch1-s03",
+      "video": "output/sora/ch1/ch1-s03-layer-instability.mp4",
+      "voiceover": "output/speech/ch1/ch1-s03-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "Wrong Layer Conversation"
+    },
+    {
+      "id": "ch1-s04",
+      "video": "output/sora/ch1/ch1-s04-semantic-drift.mp4",
+      "voiceover": "output/speech/ch1/ch1-s04-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "One Word, Five Meanings"
+    },
+    {
+      "id": "ch1-s05",
+      "video": "output/sora/ch1/ch1-s05-valuation-fall.mp4",
+      "voiceover": "output/speech/ch1/ch1-s05-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "Valuation Collapse"
+    },
+    {
+      "id": "ch1-s06",
+      "video": "output/sora/ch1/ch1-s06-layer-discipline.mp4",
+      "voiceover": "output/speech/ch1/ch1-s06-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "Three Stable Layers"
+    },
+    {
+      "id": "ch1-s07",
+      "video": "output/sora/ch1/ch1-s07-roi-mechanism.mp4",
+      "voiceover": "output/speech/ch1/ch1-s07-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "ROI AI = M x SC"
+    },
+    {
+      "id": "ch1-s08",
+      "video": "output/sora/ch1/ch1-s08-fulcrum-choice.mp4",
+      "voiceover": "output/speech/ch1/ch1-s08-voiceover.mp3",
+      "durationSeconds": 4,
+      "title": "Choose the Fulcrum"
+    }
+  ]
+}

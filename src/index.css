@@ -481,3 +481,91 @@ body {
     min-width: 0;
   }
 }
+
+.asset-review-shell {
+  min-height: 660px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(161, 220, 213, 0.42);
+  box-shadow:
+    0 30px 64px rgba(0, 0, 0, 0.52),
+    0 0 72px rgba(161, 220, 213, 0.18);
+  background: rgba(6, 20, 29, 0.84);
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+}
+
+.asset-review-title {
+  margin: 0;
+  color: #e8fffc;
+  font-size: clamp(1rem, 1.8vw, 1.32rem);
+}
+
+.asset-review-subtitle {
+  margin: 4px 0 0;
+  color: #9fcbc7;
+  font-size: 0.84rem;
+}
+
+.asset-review-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(161, 220, 213, 0.56);
+  background: #061420;
+}
+
+.asset-review-media {
+  width: 100%;
+  height: min(56vh, 560px);
+  object-fit: contain;
+  display: block;
+  background: #061420;
+}
+
+.asset-review-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.asset-review-mode-button {
+  border: 1px solid rgba(161, 220, 213, 0.52);
+  background: rgba(6, 24, 34, 0.82);
+  color: #cbeeea;
+  border-radius: 999px;
+  padding: 10px 14px;
+  min-width: 130px;
+  font-family: "Inter", "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.asset-review-mode-button.active {
+  background: linear-gradient(140deg, #9ce2da 0%, #79c7bf 100%);
+  color: #123439;
+  border-color: rgba(173, 239, 231, 0.9);
+}
+
+@media (max-width: 700px) {
+  .asset-review-shell {
+    min-height: 460px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .asset-review-media {
+    height: min(42vh, 420px);
+  }
+
+  .asset-review-controls {
+    width: 100%;
+  }
+
+  .asset-review-mode-button {
+    flex: 1;
+    min-width: 0;
+  }
+}

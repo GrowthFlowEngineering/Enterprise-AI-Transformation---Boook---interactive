@@ -1,134 +1,149 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import ChapterOneScene from "./components/ChapterOneScene";
+import ChapterOneAssetReview from "./components/ChapterOneAssetReview";
+import {
+  CHAPTER_ONE_SCENES,
+  createChapterOneState,
+  getChapterOneScene,
+  isFinalScene,
+  transitionChapterOne,
+  type ChapterOneState,
+} from "./chapterOneFlow";
 
-type ShowcaseMode = "slideshow" | "video";
-
-const toAssetUrl = (relativePath: string) =>
-  `${import.meta.env.BASE_URL}${relativePath.replace(/^\/+/, "")}`;
-
-const SLIDESHOW_ASSETS = [
-  toAssetUrl("output/imagegen/ch1/ch1-s01-alexandria-library.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s02-roman-soldier-handover.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s03-wrong-layer-stack.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s04-semantic-drift-split.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s05-valuation-collapse.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s06-three-layers-architecture.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s07-roi-mxsc.png"),
-  toAssetUrl("output/imagegen/ch1/ch1-s08-fulcrum-decision.png"),
-];
-
-const VIDEO_REEL_ASSETS = [
-  toAssetUrl("output/sora/ch1/ch1-s01-library-reveal.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s02-soldier-handover.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s03-layer-instability.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s04-semantic-drift.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s05-valuation-fall.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s06-layer-discipline.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s07-roi-mechanism.mp4"),
-  toAssetUrl("output/sora/ch1/ch1-s08-fulcrum-choice.mp4"),
-];
+type AppViewMode = "story" | "assets";
 
 const App = () => {
-  const [mode, setMode] = useState<ShowcaseMode>("slideshow");
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [videoIndex, setVideoIndex] = useState(0);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [state, setState] = useState<ChapterOneState>(createChapterOneState);
+  const [interactionDone, setInteractionDone] = useState(false);
+  const [viewMode, setViewMode] = useState<AppViewMode>("story");
 
-  const activeSlide = useMemo(
-    () => SLIDESHOW_ASSETS[slideIndex] ?? SLIDESHOW_ASSETS[0],
-    [slideIndex]
-  );
-  const activeVideo = useMemo(
-    () => VIDEO_REEL_ASSETS[videoIndex] ?? VIDEO_REEL_ASSETS[0],
-    [videoIndex]
-  );
+  const scene = useMemo(() => getChapterOneScene(state.sceneIndex), [state.sceneIndex]);
+  const done = isFinalScene(state.sceneIndex);
 
   useEffect(() => {
-    if (mode !== "slideshow") return;
-
-    const timer = window.setInterval(() => {
-      setSlideIndex((previous) => (previous + 1) % SLIDESHOW_ASSETS.length);
-    }, 2800);
-
-    return () => {
-      window.clearInterval(timer);
-    };
-  }, [mode]);
-
-  useEffect(() => {
-    if (mode !== "video") return;
-    const player = videoRef.current;
-    if (!player) return;
-    player.currentTime = 0;
-    void player.play().catch(() => {
-      // Autoplay may be blocked by browser policy; controls remain available.
-    });
-  }, [mode, videoIndex]);
-
-  const onVideoEnded = () => {
-    setVideoIndex((previous) => (previous + 1) % VIDEO_REEL_ASSETS.length);
-  };
+    setInteractionDone(false);
+  }, [state.sceneIndex]);
 
   return (
-    <main className="showcase-shell">
-      <section className="showcase-stage" aria-label="Chapter 1 generated media review">
-        <div className="showcase-brand-strip">
-          <a href="#book-link-placeholder">Book: The Language of Enterprise AI Transformation</a>
-          <a href="#author-link-placeholder">Author: Moses Sam Paul J.</a>
-          <a href="#partner-link-placeholder">Partner: GFE - L4 - Growth Flow Engineering</a>
-        </div>
+    <main className={`app-shell scene-theme-${scene.theme}`}>
+      <section className="chapter-stage">
+        {viewMode === "story" ? (
+          <ChapterOneScene
+            sceneIndex={state.sceneIndex}
+            title={scene.title}
+            narrativeLine={scene.narrativeLine}
+            requiresInteraction={!interactionDone}
+            onPrimaryNodeActivated={() => {
+              setInteractionDone((previous) => {
+                if (previous) return previous;
+                if (!done) {
+                  window.setTimeout(() => {
+                    setState((current) => transitionChapterOne(current, "PRIMARY_ACTION"));
+                  }, 420);
+                }
+                return true;
+              });
+            }}
+          />
+        ) : (
+          <ChapterOneAssetReview />
+        )}
 
-        <h1 className="showcase-title">Chapter 1 Generated Asset Review</h1>
-        <p className="showcase-subtitle">
-          {mode === "slideshow"
-            ? `Slideshow ${slideIndex + 1}/${SLIDESHOW_ASSETS.length}`
-            : `Video reel ${videoIndex + 1}/${VIDEO_REEL_ASSETS.length}`}
-        </p>
+        <aside className="fallback-panel" aria-label="Fallback controls">
+          <div className="identity-strip">
+            <a href="#book-link-placeholder">Book: The Language of Enterprise AI Transformation</a>
+            <a href="#author-link-placeholder">Author: Moses Sam Paul J.</a>
+            <a href="#partner-link-placeholder">
+              Partner: GFE - L4 - Growth Flow Engineering
+            </a>
+          </div>
 
-        <div className="showcase-media-frame">
-          {mode === "slideshow" ? (
-            <img
-              className="showcase-media"
-              src={activeSlide}
-              alt={`Chapter 1 generated slide ${slideIndex + 1}`}
-            />
+          {viewMode === "story" ? (
+            <>
+              <p className="scene-kicker">Chapter 1 · Scene {state.sceneIndex + 1}</p>
+              <h1 className="panel-title">{scene.title}</h1>
+              <p className="scene-progress">
+                Scene {state.sceneIndex + 1}/{CHAPTER_ONE_SCENES.length}
+              </p>
+
+              {done && interactionDone && (
+                <div className="offer-row">
+                  <a href="#book-link-placeholder" className="offer-link">
+                    Get First 3 Chapters
+                  </a>
+                  <a href="#diagnostic-link-placeholder" className="offer-link">
+                    Book Strategic Diagnostic
+                  </a>
+                </div>
+              )}
+
+              <button
+                type="button"
+                className="scene-action-fallback"
+                onClick={() => {
+                  if (!done) {
+                    setState((current) => transitionChapterOne(current, "PRIMARY_ACTION"));
+                    return;
+                  }
+
+                  if (!interactionDone) {
+                    setInteractionDone(true);
+                    return;
+                  }
+
+                  setState((current) => transitionChapterOne(current, "REPLAY"));
+                }}
+              >
+                {done
+                  ? interactionDone
+                    ? "Replay Chapter 1"
+                    : scene.fallbackActionLabel
+                  : scene.fallbackActionLabel}
+              </button>
+
+              <button
+                type="button"
+                className="scene-action-fallback"
+                onClick={() => setViewMode("assets")}
+              >
+                Open Asset Review Scene
+              </button>
+
+              <details className="scene-context">
+                <summary>Story context</summary>
+                <p className="scene-body">{scene.contextSummary}</p>
+                <p className="scene-signal">{scene.commercialSignal}</p>
+              </details>
+
+              <div className="chapter-chip">
+                <span>Chapter 1 complete scene arc</span>
+                <span>Story-first flow · visual cues only · fallback panel secondary</span>
+              </div>
+            </>
           ) : (
-            <video
-              key={activeVideo}
-              ref={videoRef}
-              className="showcase-media"
-              src={activeVideo}
-              controls
-              autoPlay
-              muted
-              playsInline
-              onEnded={onVideoEnded}
-            />
+            <>
+              <p className="scene-kicker">Chapter 1 · Asset Review Scene</p>
+              <h1 className="panel-title">Generated Slideshow + Video Reel</h1>
+              <p className="scene-progress">
+                Use this to verify generated visuals before integrating into story scenes.
+              </p>
+
+              <button
+                type="button"
+                className="scene-action-fallback"
+                onClick={() => setViewMode("story")}
+              >
+                Back to Story Scene
+              </button>
+
+              <div className="chapter-chip">
+                <span>Asset review mode</span>
+                <span>Bottom controls on left scene switch Slideshow and Video.</span>
+              </div>
+            </>
           )}
-        </div>
-
-        <p className="showcase-hint">
-          {mode === "slideshow"
-            ? "Auto-advancing every 2.8s."
-            : "Each clip auto-advances to the next."}
-        </p>
+        </aside>
       </section>
-
-      <div className="showcase-bottom-controls" role="group" aria-label="Asset mode switch">
-        <button
-          type="button"
-          className={`showcase-mode-button ${mode === "slideshow" ? "active" : ""}`}
-          onClick={() => setMode("slideshow")}
-        >
-          Slideshow
-        </button>
-        <button
-          type="button"
-          className={`showcase-mode-button ${mode === "video" ? "active" : ""}`}
-          onClick={() => setMode("video")}
-        >
-          Video
-        </button>
-      </div>
     </main>
   );
 };

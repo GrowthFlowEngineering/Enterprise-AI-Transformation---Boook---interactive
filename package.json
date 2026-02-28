@@ -11,7 +11,9 @@
     "assets:ch1:dry-run": "bash scripts/generate_ch1_bespoke_assets.sh --dry-run",
     "assets:ch1:dry-run:video": "bash scripts/generate_ch1_bespoke_assets.sh --dry-run --with-sora",
     "assets:ch1:live": "bash scripts/generate_ch1_bespoke_assets.sh --live",
-    "assets:ch1:live:video": "bash scripts/generate_ch1_bespoke_assets.sh --live --with-sora"
+    "assets:ch1:live:video": "bash scripts/generate_ch1_bespoke_assets.sh --live --with-sora",
+    "speech:ch1:dry-run": "bash scripts/generate_ch1_voiceover.sh --dry-run",
+    "speech:ch1:live": "bash scripts/generate_ch1_voiceover.sh --live"
   },
   "dependencies": {
     "react": "^18.3.1",
