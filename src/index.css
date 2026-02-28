@@ -569,3 +569,238 @@ body {
     min-width: 0;
   }
 }
+
+.chapter-hub-shell {
+  align-items: start;
+  padding: 24px;
+}
+
+.chapter-hub-stage {
+  width: min(1320px, 100%);
+  background: rgba(6, 20, 30, 0.7);
+  border: 1px solid rgba(161, 220, 213, 0.38);
+  border-radius: 28px;
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.46),
+    0 0 64px rgba(161, 220, 213, 0.14);
+  padding: 18px;
+}
+
+.chapter-hub-header {
+  border-radius: 20px;
+  border: 1px solid rgba(161, 220, 213, 0.32);
+  background: rgba(4, 17, 26, 0.68);
+  padding: 14px;
+}
+
+.chapter-hub-identity a {
+  background: rgba(7, 24, 36, 0.86);
+  color: #a9dbd6;
+}
+
+.chapter-hub-title {
+  margin: 6px 0 0;
+  color: #ebfffc;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.chapter-hub-subtitle {
+  margin: 8px 0 0;
+  color: #abd4d1;
+  font-size: 0.92rem;
+  max-width: 860px;
+  line-height: 1.42;
+}
+
+.chapter-hub-parts {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.chapter-hub-part {
+  border: 1px solid rgba(161, 220, 213, 0.24);
+  border-radius: 16px;
+  background: rgba(4, 16, 25, 0.62);
+  padding: 12px;
+}
+
+.chapter-hub-part-title {
+  margin: 0 0 10px;
+  color: #d3f5f1;
+  font-size: 1rem;
+}
+
+.chapter-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.chapter-card {
+  border-radius: 14px;
+  border: 1px solid rgba(161, 220, 213, 0.28);
+  background: rgba(7, 25, 36, 0.8);
+  padding: 10px;
+  display: grid;
+  gap: 7px;
+}
+
+.chapter-card-index {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fc8c2;
+  font-weight: 700;
+}
+
+.chapter-card-title {
+  margin: 0;
+  color: #ebfffc;
+  font-size: 1rem;
+  line-height: 1.26;
+}
+
+.chapter-card-subtitle {
+  margin: 0;
+  color: #a8d3cf;
+  font-size: 0.82rem;
+  line-height: 1.36;
+}
+
+.chapter-card-source {
+  margin: 0;
+  color: #7bb5af;
+  font-size: 0.72rem;
+  font-family: "Inter", "Outfit", sans-serif;
+}
+
+.chapter-card-footer {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chapter-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(161, 220, 213, 0.42);
+  padding: 5px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.chapter-status-ready {
+  background: rgba(127, 219, 208, 0.18);
+  color: #c7fff8;
+}
+
+.chapter-status-scaffolded {
+  background: rgba(161, 190, 187, 0.16);
+  color: #c7dedb;
+}
+
+.chapter-open-button {
+  min-width: 132px;
+  text-align: center;
+  padding: 9px 10px;
+  font-size: 0.8rem;
+}
+
+.chapter-scaffold-shell {
+  background:
+    radial-gradient(circle at 16% 22%, rgba(173, 239, 231, 0.2) 0%, transparent 34%),
+    radial-gradient(circle at 82% 76%, rgba(161, 190, 187, 0.18) 0%, transparent 36%),
+    linear-gradient(163deg, #040d15 0%, #102130 56%, #173748 100%);
+}
+
+.chapter-scaffold-canvas-shell {
+  min-height: 660px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(161, 220, 213, 0.4);
+  box-shadow:
+    0 30px 64px rgba(0, 0, 0, 0.52),
+    0 0 72px rgba(161, 220, 213, 0.14);
+  background: linear-gradient(180deg, #08131f 0%, #0e1f2b 100%);
+  position: relative;
+}
+
+.chapter-scaffold-world {
+  min-height: 660px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 20px;
+}
+
+.chapter-scaffold-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: #8bc3be;
+  font-weight: 700;
+}
+
+.chapter-scaffold-title {
+  margin: 0;
+  color: #e9fffc;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  max-width: 640px;
+}
+
+.chapter-scaffold-line {
+  margin: 0;
+  color: #a8d2cf;
+  font-size: clamp(0.9rem, 1.3vw, 1.06rem);
+  max-width: 680px;
+  line-height: 1.44;
+}
+
+.chapter-scaffold-node {
+  border: 1px solid rgba(173, 239, 231, 0.52);
+  border-radius: 999px;
+  background: rgba(7, 24, 35, 0.86);
+  color: #d9fbf7;
+  padding: 14px 20px;
+  min-width: 260px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow:
+    0 0 0 1px rgba(173, 239, 231, 0.2) inset,
+    0 14px 30px rgba(0, 0, 0, 0.36);
+}
+
+.chapter-scaffold-node-core {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #d5fffa 0%, #80d7cd 64%, #427277 100%);
+  box-shadow: 0 0 14px rgba(173, 239, 231, 0.5);
+}
+
+.chapter-scaffold-node-text {
+  font-family: "Inter", "Outfit", sans-serif;
+}
+
+@media (max-width: 900px) {
+  .chapter-hub-shell {
+    padding: 14px;
+  }
+
+  .chapter-hub-stage {
+    padding: 12px;
+  }
+}
