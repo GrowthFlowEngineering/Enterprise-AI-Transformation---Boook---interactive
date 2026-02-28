@@ -345,3 +345,139 @@ body {
     padding: 9px 10px;
   }
 }
+
+.showcase-shell {
+  min-height: 100vh;
+  padding: 20px 20px 96px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(173, 239, 231, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 82% 76%, rgba(66, 114, 119, 0.2) 0%, transparent 34%),
+    linear-gradient(163deg, #020b12 0%, #081723 56%, #0f2532 100%);
+}
+
+.showcase-stage {
+  width: min(1180px, 100%);
+  background: rgba(5, 18, 28, 0.62);
+  border: 1px solid rgba(161, 220, 213, 0.36);
+  border-radius: 28px;
+  padding: 16px;
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.48),
+    0 0 56px rgba(161, 220, 213, 0.16);
+}
+
+.showcase-brand-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.showcase-brand-strip a {
+  text-decoration: none;
+  font-size: 0.72rem;
+  color: #9cc8c4;
+  border: 1px solid rgba(161, 220, 213, 0.5);
+  border-radius: 999px;
+  background: rgba(4, 20, 30, 0.64);
+  padding: 6px 10px;
+}
+
+.showcase-title {
+  margin: 0;
+  color: #e8fffc;
+  font-size: clamp(1.2rem, 2.3vw, 1.9rem);
+}
+
+.showcase-subtitle {
+  margin: 6px 0 12px;
+  color: #a9d5d1;
+  font-size: 0.9rem;
+  font-family: "Inter", "Outfit", sans-serif;
+}
+
+.showcase-media-frame {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(161, 220, 213, 0.52);
+  background: #030d16;
+  min-height: 320px;
+}
+
+.showcase-media {
+  width: 100%;
+  height: min(68vh, 700px);
+  display: block;
+  object-fit: contain;
+  background: #030d16;
+}
+
+.showcase-hint {
+  margin: 10px 0 0;
+  color: #88b3af;
+  font-size: 0.82rem;
+}
+
+.showcase-bottom-controls {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: rgba(4, 20, 30, 0.86);
+  border: 1px solid rgba(161, 220, 213, 0.56);
+  border-radius: 999px;
+  padding: 8px;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+}
+
+.showcase-mode-button {
+  min-width: 132px;
+  border: 1px solid rgba(161, 220, 213, 0.42);
+  background: rgba(8, 26, 37, 0.84);
+  color: #c9efea;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-family: "Inter", "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.showcase-mode-button.active {
+  background: linear-gradient(140deg, #9ce2da 0%, #79c7bf 100%);
+  color: #123439;
+  border-color: rgba(173, 239, 231, 0.94);
+}
+
+@media (max-width: 760px) {
+  .showcase-shell {
+    padding: 12px 12px 88px;
+  }
+
+  .showcase-stage {
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  .showcase-media {
+    height: min(52vh, 500px);
+  }
+
+  .showcase-bottom-controls {
+    width: calc(100% - 24px);
+    justify-content: center;
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .showcase-mode-button {
+    flex: 1;
+    min-width: 0;
+  }
+}
